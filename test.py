@@ -64,6 +64,10 @@ for epoch in range(num_epochs):
     loss.backward()
     # 梯度下降，优化参数
     optimizer.step()
+    if(batch_idex+1)%10 == 0:
+            print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
+                epoch, batch_idex * len(data), len(train_loader.dataset),
+                100. * batch_idex / len(train_loader), loss.item()))
  
 # 评估准确度的函数
 def check_accuracy(loader, model):
